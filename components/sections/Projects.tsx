@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ExternalLink, Github } from "lucide-react";
 
 type Project = {
   index: string;
@@ -11,12 +11,42 @@ type Project = {
   description: string;
   stack: string[];
   highlight: string;
-  links?: { live?: string; github?: string };
+  links?: { live?: string; github?: string; githubAlt?: { label: string; url: string } };
+  featured?: boolean;
 };
 
 const PROJECTS: Project[] = [
   {
     index: "01",
+    title: "ResuMatch",
+    tagline: "ATS-style resume → JD analyzer with explainable scoring",
+    year: "2026",
+    description:
+      "Full-stack resume analyzer: upload a PDF, paste a job description, get back a 0–100 match score with the exact keywords you're missing. Spring Boot REST API with JWT auth, PostgreSQL, and Apache PDFBox for parsing. Next.js dashboard with an animated radial score gauge. Uses a curated 179-skill dictionary plus Jaccard similarity — no black-box scoring.",
+    stack: [
+      "Java 21",
+      "Spring Boot",
+      "PostgreSQL",
+      "JWT",
+      "Apache PDFBox",
+      "Next.js 15",
+      "TypeScript",
+      "Tailwind",
+      "Framer Motion",
+    ],
+    highlight: "16 REST endpoints · 5 entities · multi-tenant safe by default",
+    links: {
+      live: "https://resumatch-ui-3yv7.vercel.app",
+      github: "https://github.com/Aman100705/resumatch",
+      githubAlt: {
+        label: "Frontend repo",
+        url: "https://github.com/Aman100705/resumatch-ui",
+      },
+    },
+    featured: true,
+  },
+  {
+    index: "02",
     title: "Full-Stack E-Commerce Platform",
     tagline: "Production-grade MERN shop with Redis caching & JWT auth",
     year: "2025",
@@ -24,10 +54,10 @@ const PROJECTS: Project[] = [
       "A complete e-commerce backend with Node.js/Express — product catalog, cart, orders, payments via RESTful APIs. JWT-based auth with role-based access control for Admin and Customer. Deployed on AWS EC2 with Docker; images on S3.",
     stack: ["React", "Node.js", "Express", "MongoDB", "Redis", "AWS", "Docker", "JWT"],
     highlight: "~40% faster API responses under load via Redis caching",
-    links: { github: "#" },
+    links: { github: "https://github.com/Aman100705" },
   },
   {
-    index: "02",
+    index: "03",
     title: "AI-Powered Chatbot Integration",
     tagline: "Context-aware GPT chatbot with multi-turn memory",
     year: "2025",
@@ -35,10 +65,10 @@ const PROJECTS: Project[] = [
       "Integrated OpenAI's GPT API into a Flask backend with a clean REST API layer (POST /chat, GET /history) consumed by a React frontend. Applied domain-tuned prompt engineering to meaningfully improve response relevance.",
     stack: ["Python", "OpenAI API", "Flask", "React", "REST", "JSON"],
     highlight: "50% relevance improvement through prompt engineering",
-    links: { github: "#" },
+    links: { github: "https://github.com/Aman100705" },
   },
   {
-    index: "03",
+    index: "04",
     title: "YouTube Clone",
     tagline: "Streaming UX on YouTube Data API v3",
     year: "2024",
@@ -46,10 +76,10 @@ const PROJECTS: Project[] = [
       "Fully responsive video streaming web app with real-time search, playback, and personalized playlists. Modular vanilla JS architecture with infinite scroll, debounced search, and dynamic routing.",
     stack: ["JavaScript", "HTML5", "CSS3", "YouTube API"],
     highlight: "35% fewer API calls via debounced search",
-    links: { github: "#" },
+    links: { github: "https://github.com/Aman100705" },
   },
   {
-    index: "04",
+    index: "05",
     title: "Real-Time Weather Dashboard",
     tagline: "Desktop forecasting app with local caching",
     year: "2024",
@@ -57,10 +87,10 @@ const PROJECTS: Project[] = [
       "Python desktop weather dashboard fetching 5-day forecasts via OpenWeatherMap REST API with async polling. Tkinter GUI with dynamic icons, temperature graphs, location auto-detection.",
     stack: ["Python", "Tkinter", "OpenWeatherMap API"],
     highlight: "60% reduction in redundant network calls",
-    links: { github: "#" },
+    links: { github: "https://github.com/Aman100705" },
   },
   {
-    index: "05",
+    index: "06",
     title: "Attendance Management System",
     tagline: "CLI-based record system in pure C++",
     year: "2024",
@@ -68,7 +98,7 @@ const PROJECTS: Project[] = [
       "CLI system with admin authentication, student registration, and attendance logging via file I/O. OOP principles (encapsulation, inheritance) applied throughout. Optimized file seek operations for O(1) lookups with concurrent-safe integrity checks.",
     stack: ["C++", "File I/O", "OOP", "DSA"],
     highlight: "O(1) record retrieval via seek optimization",
-    links: { github: "#" },
+    links: { github: "https://github.com/Aman100705" },
   },
 ];
 
@@ -124,6 +154,12 @@ export default function Projects() {
                   <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-ink-500">
                     {project.year}
                   </span>
+                  {project.featured && (
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-400/40 bg-amber-400/10 px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.2em] text-amber-400">
+                      <span className="h-1 w-1 rounded-full bg-amber-400 animate-pulse" />
+                      Live
+                    </span>
+                  )}
                 </div>
 
                 {/* Content */}
@@ -158,10 +194,49 @@ export default function Projects() {
                       </span>
                     ))}
                   </div>
+
+                  {/* Action buttons (live demo, repos) */}
+                  {(project.links?.live || project.links?.githubAlt) && (
+                    <div className="mt-6 flex flex-wrap items-center gap-3">
+                      {project.links?.live && (
+                        <a
+                          href={project.links.live}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group/btn inline-flex items-center gap-2 rounded-full border border-amber-400 bg-amber-400 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.15em] text-ink-950 transition hover:bg-amber-300"
+                        >
+                          <ExternalLink size={12} strokeWidth={2.5} />
+                          <span>Live demo</span>
+                        </a>
+                      )}
+                      {project.links?.github && (
+                        <a
+                          href={project.links.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 rounded-full border border-ink-700 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.15em] text-ink-300 transition hover:border-amber-400 hover:text-amber-400"
+                        >
+                          <Github size={12} strokeWidth={2.5} />
+                          <span>{project.links?.githubAlt ? "Backend" : "Code"}</span>
+                        </a>
+                      )}
+                      {project.links?.githubAlt && (
+                        <a
+                          href={project.links.githubAlt.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 rounded-full border border-ink-700 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.15em] text-ink-300 transition hover:border-amber-400 hover:text-amber-400"
+                        >
+                          <Github size={12} strokeWidth={2.5} />
+                          <span>{project.links.githubAlt.label}</span>
+                        </a>
+                      )}
+                    </div>
+                  )}
                 </div>
 
-                {/* Link */}
-                {project.links?.github && (
+                {/* Top-right circular GitHub link — kept for non-featured projects */}
+                {project.links?.github && !project.links?.live && (
                   <a
                     href={project.links.github}
                     target="_blank"
@@ -187,7 +262,7 @@ export default function Projects() {
         >
           + hackathon builds @ IIT Hyderabad & DTU InnoVault ·{" "}
           <a
-            href="https://github.com/"
+            href="https://github.com/Aman100705"
             target="_blank"
             rel="noopener noreferrer"
             className="underline underline-offset-4 transition hover:text-amber-400"
