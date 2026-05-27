@@ -18,6 +18,30 @@ type Project = {
 const PROJECTS: Project[] = [
   {
     index: "01",
+    title: "Cadence",
+    tagline: "Multi-role goal-setting & performance-tracking SaaS, built in 24h",
+    year: "2026",
+    description:
+      "A full goal-management platform with three roles (Employee, Manager, Admin) and a complete lifecycle — draft, submit, approve, lock, quarterly check-ins, audit-ready reporting. Six unit-of-measure scoring formulas, weightage validation, and an Excel export. The standout feature is an AI Goal Coach that uses Gemini to rewrite vague drafts into SMART goals with a quality score and tips. Built solo in a 24-hour hackathon.",
+    stack: [
+      "Next.js 16",
+      "TypeScript",
+      "Prisma",
+      "PostgreSQL",
+      "Auth.js",
+      "Gemini AI",
+      "Tailwind",
+      "Framer Motion",
+    ],
+    highlight: "3 roles · 7-table schema · AI Goal Coach · full audit trail",
+    links: {
+      live: "https://cadence-cyan.vercel.app",
+      github: "https://github.com/Aman100705/cadence",
+    },
+    featured: true,
+  },
+  {
+    index: "02",
     title: "ResuMatch",
     tagline: "ATS-style resume → JD analyzer with explainable scoring",
     year: "2026",
@@ -44,61 +68,6 @@ const PROJECTS: Project[] = [
       },
     },
     featured: true,
-  },
-  {
-    index: "02",
-    title: "Full-Stack E-Commerce Platform",
-    tagline: "Production-grade MERN shop with Redis caching & JWT auth",
-    year: "2025",
-    description:
-      "A complete e-commerce backend with Node.js/Express — product catalog, cart, orders, payments via RESTful APIs. JWT-based auth with role-based access control for Admin and Customer. Deployed on AWS EC2 with Docker; images on S3.",
-    stack: ["React", "Node.js", "Express", "MongoDB", "Redis", "AWS", "Docker", "JWT"],
-    highlight: "~40% faster API responses under load via Redis caching",
-    links: { github: "https://github.com/Aman100705" },
-  },
-  {
-    index: "03",
-    title: "AI-Powered Chatbot Integration",
-    tagline: "Context-aware GPT chatbot with multi-turn memory",
-    year: "2025",
-    description:
-      "Integrated OpenAI's GPT API into a Flask backend with a clean REST API layer (POST /chat, GET /history) consumed by a React frontend. Applied domain-tuned prompt engineering to meaningfully improve response relevance.",
-    stack: ["Python", "OpenAI API", "Flask", "React", "REST", "JSON"],
-    highlight: "50% relevance improvement through prompt engineering",
-    links: { github: "https://github.com/Aman100705" },
-  },
-  {
-    index: "04",
-    title: "YouTube Clone",
-    tagline: "Streaming UX on YouTube Data API v3",
-    year: "2024",
-    description:
-      "Fully responsive video streaming web app with real-time search, playback, and personalized playlists. Modular vanilla JS architecture with infinite scroll, debounced search, and dynamic routing.",
-    stack: ["JavaScript", "HTML5", "CSS3", "YouTube API"],
-    highlight: "35% fewer API calls via debounced search",
-    links: { github: "https://github.com/Aman100705" },
-  },
-  {
-    index: "05",
-    title: "Real-Time Weather Dashboard",
-    tagline: "Desktop forecasting app with local caching",
-    year: "2024",
-    description:
-      "Python desktop weather dashboard fetching 5-day forecasts via OpenWeatherMap REST API with async polling. Tkinter GUI with dynamic icons, temperature graphs, location auto-detection.",
-    stack: ["Python", "Tkinter", "OpenWeatherMap API"],
-    highlight: "60% reduction in redundant network calls",
-    links: { github: "https://github.com/Aman100705" },
-  },
-  {
-    index: "06",
-    title: "Attendance Management System",
-    tagline: "CLI-based record system in pure C++",
-    year: "2024",
-    description:
-      "CLI system with admin authentication, student registration, and attendance logging via file I/O. OOP principles (encapsulation, inheritance) applied throughout. Optimized file seek operations for O(1) lookups with concurrent-safe integrity checks.",
-    stack: ["C++", "File I/O", "OOP", "DSA"],
-    highlight: "O(1) record retrieval via seek optimization",
-    links: { github: "https://github.com/Aman100705" },
   },
 ];
 
@@ -260,7 +229,7 @@ export default function Projects() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mt-16 text-center font-mono text-xs text-ink-500"
         >
-          + hackathon builds @ IIT Hyderabad & DTU InnoVault ·{" "}
+          + hackathon builds @ AtomQuest, IIT Hyderabad &amp; DTU InnoVault ·{" "}
           <a
             href="https://github.com/Aman100705"
             target="_blank"
