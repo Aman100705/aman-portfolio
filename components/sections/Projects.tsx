@@ -60,7 +60,7 @@ const PROJECTS: Project[] = [
     ],
     highlight: "16 REST endpoints · 5 entities · multi-tenant safe by default",
     links: {
-      live: "https://resumatch-ui-3yv7.vercel.app",
+      live: "https://resumatch-ui-mlt3.vercel.app",
       github: "https://github.com/Aman100705/resumatch",
       githubAlt: {
         label: "Frontend repo",
