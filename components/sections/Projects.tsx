@@ -69,6 +69,26 @@ const PROJECTS: Project[] = [
     },
     featured: true,
   },
+  {
+    index: "03",
+    title: "SignSpeak",
+    tagline: "Real-time ASL recognition in the browser — MediaPipe + TensorFlow.js",
+    year: "2026",
+    description:
+      "A browser-based sign language recognition tool. Uses MediaPipe Tasks Vision to track 21 hand keypoints at ~60 FPS, with landmark normalization (wrist-centered, scale-invariant) so position and distance don't break classification. Currently has the detection pipeline and training-data collection UI working; the TensorFlow.js classifier (63→64→32→26) and live prediction page are the next milestones. Whole pipeline runs client-side — no server, no cloud video streaming, no privacy concerns.",
+    stack: [
+      "Next.js 16",
+      "TypeScript",
+      "MediaPipe",
+      "TensorFlow.js",
+      "Tailwind",
+      "Computer Vision",
+    ],
+    highlight: "In progress · 21-point hand tracking · client-side ML",
+    links: {
+      github: "https://github.com/Aman100705/signspeak",
+    },
+  },
 ];
 
 export default function Projects() {
@@ -168,7 +188,7 @@ export default function Projects() {
                   {(project.links?.live || project.links?.githubAlt) && (
                     <div className="mt-6 flex flex-wrap items-center gap-3">
                       {project.links?.live && (
-                        <a
+                        
                           href={project.links.live}
                           target="_blank"
                           rel="noopener noreferrer"
@@ -179,7 +199,7 @@ export default function Projects() {
                         </a>
                       )}
                       {project.links?.github && (
-                        <a
+                        
                           href={project.links.github}
                           target="_blank"
                           rel="noopener noreferrer"
@@ -190,7 +210,7 @@ export default function Projects() {
                         </a>
                       )}
                       {project.links?.githubAlt && (
-                        <a
+                        
                           href={project.links.githubAlt.url}
                           target="_blank"
                           rel="noopener noreferrer"
@@ -206,7 +226,7 @@ export default function Projects() {
 
                 {/* Top-right circular GitHub link — kept for non-featured projects */}
                 {project.links?.github && !project.links?.live && (
-                  <a
+                  
                     href={project.links.github}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -230,7 +250,7 @@ export default function Projects() {
           className="mt-16 text-center font-mono text-xs text-ink-500"
         >
           + hackathon builds @ AtomQuest, IIT Hyderabad &amp; DTU InnoVault ·{" "}
-          <a
+          
             href="https://github.com/Aman100705"
             target="_blank"
             rel="noopener noreferrer"
