@@ -188,7 +188,7 @@ export default function Projects() {
                   {(project.links?.live || project.links?.githubAlt) && (
                     <div className="mt-6 flex flex-wrap items-center gap-3">
                       {project.links?.live && (
-                        
+                        <a
                           href={project.links.live}
                           target="_blank"
                           rel="noopener noreferrer"
@@ -199,7 +199,7 @@ export default function Projects() {
                         </a>
                       )}
                       {project.links?.github && (
-                        
+                        <a
                           href={project.links.github}
                           target="_blank"
                           rel="noopener noreferrer"
@@ -210,7 +210,7 @@ export default function Projects() {
                         </a>
                       )}
                       {project.links?.githubAlt && (
-                        
+                        <a
                           href={project.links.githubAlt.url}
                           target="_blank"
                           rel="noopener noreferrer"
@@ -226,7 +226,7 @@ export default function Projects() {
 
                 {/* Top-right circular GitHub link — kept for non-featured projects */}
                 {project.links?.github && !project.links?.live && (
-                  
+                  <a
                     href={project.links.github}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -250,7 +250,7 @@ export default function Projects() {
           className="mt-16 text-center font-mono text-xs text-ink-500"
         >
           + hackathon builds @ AtomQuest, IIT Hyderabad &amp; DTU InnoVault ·{" "}
-          
+          <a
             href="https://github.com/Aman100705"
             target="_blank"
             rel="noopener noreferrer"
